@@ -10,6 +10,7 @@ import { getCurrentTime } from "./utils.js";
 import { companyinfo } from "./companyinfo.js";
 import { BsChatLeft } from "react-icons/bs";
 import { BsChatLeftFill } from "react-icons/bs";
+import { url } from "./constant.js";
 
 const WilloChatbot = ({ initialMessages = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -73,7 +74,7 @@ const WilloChatbot = ({ initialMessages = [] }) => {
     
     User's question: ${text}`;
 
-      const response = await fetch(process.env.NEXT_PUBLIC_API, {
+      const response = await fetch(`${url}?key=${process.env.NEXT_PUBLIC_API_KEY}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
